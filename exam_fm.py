@@ -6,8 +6,7 @@ Created on Mon Feb 28 17:09:47 2022
 """
 
 
-## lets try and create this function as an itterable (as in it uses yield)
-## then have it return,  
+
 
 def annuity(n,i,P,immediate = True,PV = True):
     '''
@@ -47,8 +46,7 @@ def annuity(n,i,P,immediate = True,PV = True):
         else:
             return P*pres_val*(1+i)**(n+1)
         
-''' would be cool to do a two dimensional plot with variables, n,i changing and then
-future value as the z axis ''' 
+
 
 import numpy
 import matplotlib.pyplot as plt
@@ -176,24 +174,20 @@ def yield_market_value2(F,r,j,n,C = 'par'):
             print(n - k1)
         yield ( (C*(1+j)**(-(n-k1)) + F*r * sum([(1+j)**(-t) for t in range(1,n-k1+1)]))*(1+j)**(k2/180))
 
-
+'''
 a_n = lambda n: sum([(1.10)**(-t) for t in range(1,n+1)])
 
          
 mark_val = yield_market_value2(10000, .05, .07 , 2)
 
-# while True:
-#     try:
-#         print( mark_val.__next__())
-#     except StopIteration:
-#         break
+
 
 mark_val = yield_market_value2(10000, .05, .17 , 8)
 mark_vals = [i for i in mark_val]
 
 days_input = seq.seq(0,8*180,1)
 plt.plot(days_input,mark_vals)
-
+'''
 '''
 for interest in [.02*k for k in range(1,10)]:
     mark_val = yield_market_value2(10000, .05, interest , 8)
